@@ -315,11 +315,6 @@ conda create -n neural-compression python=3.10
 conda activate neural-compression
 ```
 
-## Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
 
 # Usage
 
