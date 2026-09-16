@@ -6,7 +6,7 @@
 
 # Neural Image Compression with a Single-Hidden-Layer MLP Autoencoder
 
-This project implements a neural image compression framework based on a single-hidden-layer Multilayer Perceptron (MLP) autoencoder. Images are divided into non-overlapping \(8 \times 8\) grayscale blocks, which are compressed into lower-dimensional hidden representations and reconstructed through a sigmoid-based output layer.
+This project implements a neural image compression framework based on a single-hidden-layer Multilayer Perceptron (MLP) autoencoder. Images are divided into non-overlapping 8 × 8 grayscale blocks, which are compressed into lower-dimensional hidden representations and reconstructed through a sigmoid-based output layer.
 
 The implementation investigates backpropagation-based training and momentum-assisted optimization across different hidden-layer capacities, followed by quantitative reconstruction evaluation using Peak Signal-to-Noise Ratio (PSNR).
 
@@ -26,7 +26,7 @@ The implementation investigates backpropagation-based training and momentum-assi
 
 Neural image compression provides a data-driven alternative to conventional image compression techniques by learning compact representations of visual information.
 
-This project develops a lightweight MLP-based autoencoder for grayscale image compression and reconstruction. Each \(256 \times 256\) image is partitioned into non-overlapping \(8 \times 8\) blocks, with each block represented as a 64-dimensional normalized grayscale vector. A single hidden layer acts as the compression bottleneck, while the output layer reconstructs the original block.
+This project develops a lightweight MLP-based autoencoder for grayscale image compression and reconstruction. Each 256 × 256 image is partitioned into non-overlapping 8 × 8 blocks, with each block represented as a 64-dimensional normalized grayscale vector. A single hidden layer acts as the compression bottleneck, while the output layer reconstructs the original block.
 
 The network is trained using manually implemented forward propagation and backpropagation with sigmoid activation functions. Two optimization settings are investigated: standard gradient-based weight updates and momentum-enhanced updates. Different hidden-layer sizes are also considered to study the relationship between representation capacity and reconstruction quality.
 
@@ -51,9 +51,9 @@ The reconstructed images are evaluated using PSNR, providing a quantitative meas
 
 # Overview
 
-The system treats image compression as a learned representation problem. Rather than storing every pixel directly, each image is decomposed into local \(8 \times 8\) blocks and passed through a compact neural representation.
+The system treats image compression as a learned representation problem. Rather than storing every pixel directly, each image is decomposed into local 8 × 8 blocks and passed through a compact neural representation.
 
-For an \(8 \times 8\) grayscale block:
+For an 8 × 8 grayscale block:
 
 * The input contains 64 normalized pixel values.
 * A bias term is appended to the input representation.
@@ -67,7 +67,7 @@ The hidden-layer dimensionality controls the compression capacity of the network
 # Key Features
 
 * Single-hidden-layer MLP architecture for neural image compression
-* Block-wise \(8 \times 8\) grayscale image processing
+* Block-wise 8 × 8 grayscale image processing
 * Learned low-dimensional image representations
 * Sigmoid activation throughout the network
 * Manually implemented forward propagation
@@ -113,8 +113,8 @@ flowchart LR
 | Component             | Responsibility                                                     |
 | :--------------------- | :------------------------------------------------------------------ |
 | Input Image           | Provides the original grayscale image                              |
-| Block Extraction      | Divides images into non-overlapping \(8 \times 8\) regions         |
-| Input Representation  | Normalizes 64 pixel intensities to the \([0,1]\) range             |
+| Block Extraction      | Divides images into non-overlapping 8 × 8 regions         |
+| Input Representation  | Normalizes 64 pixel intensities to the [0,1] range             |
 | MLP Encoder           | Maps each image block to a compact hidden representation           |
 | Hidden Layer          | Acts as the learned compression bottleneck                         |
 | MLP Decoder           | Reconstructs the original block from the compressed representation |
@@ -154,13 +154,13 @@ flowchart TD
     J --> K
 ```
 
-Each \(256 \times 256\) image produces:
+Each 256 × 256 image produces:
 
 $$
 \frac{256}{8}\times\frac{256}{8}=1024
 $$
 
-independent \(8 \times 8\) blocks.
+independent 8 × 8 blocks.
 
 Each block is transformed from a 64-dimensional pixel vector into a lower-dimensional hidden representation and subsequently reconstructed.
 
@@ -187,7 +187,7 @@ $$
 z_j = \sigma\left(\sum_i v_{ij}x_i\right)
 $$
 
-where \(x_i\) represents the normalized input pixels and \(v_{ij}\) denotes the input-to-hidden weights.
+where xᵢ represents the normalized input pixels and vᵢⱼ denotes the input-to-hidden weights.
 
 The reconstructed output is computed as:
 
@@ -216,7 +216,7 @@ $$
 \mu\Delta W_{t-1}
 $$
 
-where \(\mu\) controls the contribution of the previous update.
+where μ controls the contribution of the previous update.
 
 This allows the optimization process to retain information from previous updates and can help accelerate movement in consistent gradient directions.
 
@@ -237,8 +237,8 @@ $$
 
 where:
 
-* \(MAX_I\) is the maximum possible pixel intensity.
-* \(MSE\) is the mean squared reconstruction error.
+* MAX_I is the maximum possible pixel intensity.
+* MSE is the mean squared reconstruction error.
 
 Higher PSNR indicates greater similarity between the original and reconstructed images.
 
@@ -252,7 +252,7 @@ The evaluation pipeline uses a dedicated test set containing:
 
 For each image, the system:
 
-1. Extracts \(8 \times 8\) blocks.
+1. Extracts 8 × 8 blocks.
 2. Normalizes the grayscale pixels.
 3. Passes the blocks through the trained network.
 4. Reconstructs the image.
