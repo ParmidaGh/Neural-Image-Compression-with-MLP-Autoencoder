@@ -111,7 +111,7 @@ flowchart LR
 ### Architectural Components
 
 | Component             | Responsibility                                                     |
-| --------------------- | ------------------------------------------------------------------ |
+| :--------------------- | :------------------------------------------------------------------ |
 | Input Image           | Provides the original grayscale image                              |
 | Block Extraction      | Divides images into non-overlapping \(8 \times 8\) regions         |
 | Input Representation  | Normalizes 64 pixel intensities to the \([0,1]\) range             |
@@ -286,7 +286,7 @@ Neural-Image-Compression-with-MLP-Autoencoder/
 ### Core Components
 
 | Path                             | Description                                             |
-| -------------------------------- | ------------------------------------------------------- |
+| :-------------------------------- | :------------------------------------------------------- |
 | `src/train_mlp_autoencoder.py`   | Standard MLP autoencoder training using backpropagation |
 | `src/evaluate_reconstruction.py` | Reconstruction and PSNR evaluation for trained models   |
 | `src/train_mlp_with_momentum.py` | MLP training with momentum-based weight updates         |
@@ -358,7 +358,7 @@ The resulting reconstructed images and PSNR measurements can be used to analyze 
 # Technologies Used
 
 | Category                    | Tools                     |
-| --------------------------- | ------------------------- |
+| :--------------------------- | :------------------------- |
 | Programming Language        | Python                    |
 | Numerical Computing         | NumPy                     |
 | Image Processing            | OpenCV                    |
